@@ -1,7 +1,3 @@
-# %% [markdown]
-# # Skillmodels Quickstart
-
-# %%
 from skillmodels.likelihood_function import get_maximization_inputs
 import pandas as pd
 import numpy as np
@@ -13,13 +9,6 @@ from estimagic import maximize
 import jax
 jax.devices()
 
-# %% [markdown]
-# ## Loading Model Specification and Data
-#
-# Model specifications are python dictionaries that can be safed in yaml or json files. For a moment, just assume you know how to write a model specification and have a skillmodels compatible dataset. Both are
-# explained in different tutorials.
-#
-# Next we load the model specification and the dataset.
 
 # %%
 with open("model2.yaml") as y:
@@ -102,15 +91,9 @@ print(time() - start)
 loglike_value
 
 # %%
-%timeit loglike(params)
-
-# %%
 start = time()
 gradient_value = gradient(params)
 print(time() - start)
-
-# %%
-%timeit gradient(params)
 
 # %%
 start = time()
@@ -122,20 +105,6 @@ start = time()
 loglike_and_gradient_value = loglike_and_gradient(params)
 print(time() - start)
 
-# %%
-%timeit loglike_and_gradient(params)
-
-# %% [markdown]
-#
-# ## A few additional constraints
-#
-# To get the same values as CHS we will have to do a little more work. The reason is that on top of the many constraints skillmodels generates atuomatically from the model specification, CHS impose two more constraints:
-#
-# 1. All but the self productivity paramet in the linear transition equaltion are fixed to zero
-# 2. The initial mean of the states is not estimated but assumed to be zero.
-# 3. The anchoring parameters (intercepts, control variables, loadings and SDs of measurement error are pairwise equal across periods).
-#
-# Fortunately, estimagic makes it easy to express such constraints:
 
 # %%
 constraints = max_inputs["constraints"]
