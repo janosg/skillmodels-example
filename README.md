@@ -10,7 +10,7 @@ Self-contained repo to reproduce the getting started tutorial with skillmodels.
 2. Open a terminal in the root directory of this repo and run
 ```bash
 conda env create -f enviroment.yml
-conda activate skillmodels
+conda activate skillmodels-example
 ```
 3. Open tutorial.ipynb in a browser or your editor of choice and select the correct
 environment as Kernel.
