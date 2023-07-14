@@ -1,0 +1,20 @@
+name: skillmodels-example
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.11
+  - jax
+  - pip
+  - numpy
+  - pandas
+  - scipy
+  - seaborn
+  - pdbpp
+  - dags
+  - plotly
+  - estimagic
+  - pip
+  - jupyterlab
+  - pip:
+      - git+https://github.com/janosg/skillmodels.git@main
